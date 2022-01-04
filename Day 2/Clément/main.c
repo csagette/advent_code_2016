@@ -11,7 +11,7 @@ int main () {
     int current = 0;
     int temp_button = 5;
     List* code = NULL;
-    file = fopen("input.txt", "r");
+    file = fopen("input2.txt", "r");
     if (file == NULL) {
         printf("ouverture du fichier impossible");
     }

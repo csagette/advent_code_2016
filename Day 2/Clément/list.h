@@ -13,6 +13,7 @@ List *insert (List *list, int e);
 List *append (List *list, int e);
 List *reverse (List *list);
 void print_list(List *list);
+void print_list_spec(List *list);
 
 
 #endif

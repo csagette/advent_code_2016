@@ -21,7 +21,7 @@ int main () {
     list->next = NULL;
     int dep_temp = 1;
 
-    file = fopen("input.txt", "r");
+    file = fopen("input2.txt", "r");
     if (file == NULL) {
         printf("ouverture du fichier impossible");
     }
@@ -128,7 +128,7 @@ int main () {
             print_list(list);
             /*printf("x = %lf\n", x);
             printf("y = %lf\n", y);*/
-            printf("La distance est de %lf blocs", fabs(y-x));
+            printf("La distance est de %lf blocs", fabs(y)+fabs(x));
         }
     fclose(file);
 
