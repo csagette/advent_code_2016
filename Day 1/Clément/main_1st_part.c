@@ -55,71 +55,36 @@ int main () {
             for (i=0; i < len; i++) {
                 deplacement = deplacement + (*(temp+i) - 48) * pow(10, len-i-1);
             }
-            /*printf("deplacement = %lf\n", deplacement);*/
             /** Ajustement de la nouvelle position **/
-            /*printf("past_dir = %d\n", past_dir);*/
-            int bool = 0;
             if (past_dir == 0){
                 while (dep_temp <= deplacement) {
-                    bool = contain(list, x+dep_temp, y);
-                    if (bool == 1) {
-                        printf("Le point (x,y) = (%lf,%lf) a déjà été visité\n", x+dep_temp, y);
-                        printf("La distance est de %lf blocs\n", fabs(x+dep_temp-y));
-                        return 0;
+                    list = append(list, x+dep_temp, y);
+                    dep_temp = dep_temp + 1;
                     }
-                    else {
-                        list = append(list, x+dep_temp, y);
-                        dep_temp = dep_temp + 1;
-                    }
-                }
                 x=x+deplacement;
                 dep_temp = 1;
             }
             else if (past_dir == 1){
                 while (dep_temp <= deplacement) {
-                    bool = contain(list, x, y+dep_temp);
-                    if (bool == 1) {
-                        printf("Le point (x,y) = (%lf,%lf) a déjà été visité\n", x, y+dep_temp);
-                        printf("La distance est de %lf blocs\n", fabs(x-dep_temp-y));
-                        return 0;
+                    list = append(list, x, y+dep_temp);
+                    dep_temp = dep_temp + 1;
                     }
-                    else {
-                        list = append(list, x, y+dep_temp);
-                        dep_temp = dep_temp + 1;
-                    }
-                }
                 y=y+deplacement;
                 dep_temp = 1;
             }
             else if (past_dir == 2){
                 while (dep_temp <= deplacement) {
-                    bool = contain(list, x-dep_temp, y);
-                    if (bool == 1) {
-                        printf("Le point (x,y) = (%lf,%lf) a déjà été visité\n", x-dep_temp, y);
-                        printf("La distance est de %lf blocs\n", fabs(x-dep_temp-y));
-                        return 0;
+                    list = append(list, x-dep_temp, y);
+                    dep_temp = dep_temp + 1;
                     }
-                    else {
-                        list = append(list, x-dep_temp, y);
-                        dep_temp = dep_temp + 1;
-                    }
-                }
                 x=x-deplacement;
                 dep_temp = 1;
             }
             else {
                 while (dep_temp <= deplacement) {
-                    bool = contain(list, x, y-dep_temp);
-                    if (bool == 1) {
-                        printf("Le point (x,y) = (%lf,%lf) a déjà été visité\n", x, y-dep_temp);
-                        printf("La distance est de %lf blocs\n", fabs(x+dep_temp-y));
-                        return 0;
+                    list = append(list, x, y-dep_temp);
+                    dep_temp = dep_temp + 1;
                     }
-                    else {
-                        list = append(list, x, y-dep_temp);
-                        dep_temp = dep_temp + 1;
-                    }
-                }
                 y=y-deplacement;
                 dep_temp = 1;
             }
