@@ -24,7 +24,7 @@ std::vector<std::string> split(std::string &chaine, char delimiteur)
 
 
 int main() {
-    std::ifstream file("input.txt");
+    std::ifstream file("input2.txt");
     int time = 0;
     std::vector<std::vector<int>> info;
     std::vector<std::string> line_vec;
