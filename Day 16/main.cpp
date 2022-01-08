@@ -62,8 +62,8 @@ std::string checksum(std::string str) {
 }
 
 int main() {
-    std::string str = "10011111011011001";
-    int length = 35651584;
+    std::string str = "10000";
+    int length = 20;
     str = dragon_curve(str, length);
     while (length % 2 == 0) {
         str = checksum(str);
