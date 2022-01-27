@@ -9,7 +9,7 @@
 
 int main()
 {
-  std::string input = "abbhdwsy";//l'input donnee par aoc
+  std::string input = "abc"; //l'input donnee par aoc
   std::string attemp;//tentative de hash
   std::string password;//c'est l'output
   std::string password2 = "________";//output patie 2

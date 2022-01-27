@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #define TAILLE_MAX 1000000
-
 int mylen(char* s);
 
 long long int char_to_int(char c);
@@ -25,7 +24,7 @@ int main()
     //printf("%s",chaine);
 
     printf("reponse 1 : %d\n",length1(chaine));
-    printf("reponse 2 : %lld\n",length2(chaine));
+    printf("reponse 2 : %I64d\n",length2(chaine));      // Essayer %lld si problème
 
 
     return 0;
@@ -84,7 +83,7 @@ long long int char_to_int(char c){
 
 
 int length1(char* chaine){
-    int j=0;
+    int j=-1;//on initialise a -1 au lieu de 0 car on ajoute 1 avant de regarder le premier indice
     int i=-1;
     while (i<mylen(chaine)){
       //printf("%c\t",*(chaine+i));
@@ -99,7 +98,7 @@ int length1(char* chaine){
             a=10*a+char_to_int(*(chaine+i));
             i=i+1;
           }
-          i=i+1;
+          i=i+1;//on passe le x
           int b=0;
           while (*(chaine+i)!=')'){//on recolte le nombre
             b=10*b+char_to_int(*(chaine+i));
@@ -110,24 +109,17 @@ int length1(char* chaine){
 
 
           j=j+a*b;
+          i=i+a;
           //printf("%d\t",j);
-          if (i+a+2<mylen(chaine)){
-              //printf("%d\t",j);
-              i=i+a;
-          }
-          else
-          {
-               //printf("%d\t",j);
-              break;
-          }
+          
       }
     }
-    //printf("%s\n\n\n",chaine);
+    
     return j;
 }
 
 long long int length2(char* chaine){
-    long long int j=0;
+    long long int j=-1;
     int i=-1;
     while (i<mylen(chaine)){
       //printf("%c\t",*(chaine+i));
@@ -147,16 +139,13 @@ long long int length2(char* chaine){
           while (*(chaine+i)!=')'){//on recolte le nombre
             b=10*b+char_to_int(*(chaine+i));
             i=i+1;
-
           }
           //printf("%dx%d   ",a,b);
 
           char* chaine2=malloc(10000*sizeof(char));
           for (int op=0;op<a;op++){
-                   *(chaine2+op)=*(chaine+i+1);
-              i=i+1;
-
-
+                *(chaine2+op)=*(chaine+i+1);
+                i=i+1;
           }
           *(chaine2+a)='\0';
           j=j+length2(chaine2)*b;
@@ -167,7 +156,7 @@ long long int length2(char* chaine){
       }
     }
     //printf("%s\n\n\n",chaine);
-    return j-1;
+    return j;
 }
 
 
